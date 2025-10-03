@@ -29,7 +29,7 @@ def compute_metrics_text(tokenizer, args):
         labels = np.where(labels[0] != -100, labels[0], tokenizer.pad_token_id)
         decoded_labels = tokenizer.batch_decode(labels, skip_special_tokens=True)
 
-        label_mapping = {'non-vulnerable': 0, 'vulnerable': 1}
+        label_mapping = {'benign': 0, 'vulnerable': 1}
         numeric_labels = np.array([label_mapping[label] for label in decoded_labels])
         numeric_predictions = np.array([label_mapping.get(pred, -1) for pred in decoded_preds])
 
@@ -69,7 +69,7 @@ def compute_metrics_text_aux(tokenizer, args):
         labels = np.where(labels != -100, labels, tokenizer.pad_token_id)
         decoded_labels = tokenizer.batch_decode(labels, skip_special_tokens=True)
 
-        label_mapping = {'non-vulnerable': 0, 'vulnerable': 1}
+        label_mapping = {'benign': 0, 'vulnerable': 1}
         numeric_labels = np.array([label_mapping[label] for label in decoded_labels])
         numeric_predictions = np.array([label_mapping.get(pred, -1) for pred in decoded_preds])
 
