@@ -46,7 +46,7 @@ Here is a [ground truth] function [source code]. Please analyze the potential re
 ```
 The following figure that appears in the paper shows more detailed information
 ![alt text](image.png)
-## LLM Prompt for Vulnerability Detection
+## LLM Prompt for Vulnerability Inference
 ```
 Please determine whether there are vulnerabilities in the source code of the function below.If vulnerabilities exist, please indicate their locations and the reasons for their occurrence; if there are no vulnerabilities, please explain the function's functionality. Please strictly follow the template below: if there is a vulnerability, output: VULNERABLE-YES. Include the location and reason for the vulnerability; if there are no vulnerabilities, output: VULNERABLE-NO. Include an explanation of the function's functionality. Please adhere strictly to the template. Please use as concise language as possible. Do not use bullet points or markdown format. Provide the description in a single paragraph.
 ```
