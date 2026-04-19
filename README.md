@@ -21,7 +21,7 @@ pip install -r requirements.txt
 - `--batch_size`: Batch size
 - `--max_input_length`: Maximum input length
 - `--lr`: Learning rate. Default is 5e-6.
-- `--epochs`: Maximum epoch for training. Default is 20.
+- `--epochs`: Maximum epoch for training. Default is 50.
 - `--model_type`:
   - `standard`: Standard finetuning
   - `task_prefix`: DExVul
@@ -40,14 +40,13 @@ python run.py --from_pretrained Salesforce/codet5-base --dataset MegaVul --model
 ```
 If you want to run small sample training, please add `--small_sample _x` to the command. (`x` represents the number of samples, selecting from 25, 50, 75)
 
-## Prompt for Explanation
-#### Dataset generation
+## LLM Prompt for Rationle Generation
 ```
 Here is a [ground truth] function [source code]. Please analyze the potential reasons for its [ground truth] prediction using concise and clear language. If it is vulnerable, focusing on specific issues such as logical flaws, input validation gaps, or other risks; if it is benign, clarifying its functionality and logical soundness. Provide the analysis in a single, coherent paragraph without using bullet points or markdown.
 ```
 The following figure that appears in the paper shows more detailed information
 ![alt text](image.png)
-#### Classification
+## LLM Prompt for Vulnerability Detection
 ```
 Please determine whether there are vulnerabilities in the source code of the function below.If vulnerabilities exist, please indicate their locations and the reasons for their occurrence; if there are no vulnerabilities, please explain the function's functionality. Please strictly follow the template below: if there is a vulnerability, output: VULNERABLE-YES. Include the location and reason for the vulnerability; if there are no vulnerabilities, output: VULNERABLE-NO. Include an explanation of the function's functionality. Please adhere strictly to the template. Please use as concise language as possible. Do not use bullet points or markdown format. Provide the description in a single paragraph.
 ```
